@@ -1,0 +1,1593 @@
+/* Add custom font */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype'),
+         url('fonts/CustomFont-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.body{
+    font-family:"Montserrat";
+}
+/* Solar Energy Color Scheme */
+:root {
+    --primary: #FDB813;          /* Sunny Yellow - Primary brand color */
+    --primary-light: #FFD060;    /* Light Yellow - Highlights */
+    --primary-dark: #F09D00;     /* Deep Yellow - Accents */
+    
+    --secondary: #4CAF50;        /* Green - Environmental aspect */
+    --secondary-light: #81C784;  /* Light Green - Success states */
+    --secondary-dark: #388E3C;   /* Deep Green - CTAs */
+
+    
+    --dark: #1A237E;            /* Navy Blue - Text and headers */
+    --light: #000000;           /* Off White - Backgrounds */
+    --gray: #757575;            /* Medium Gray - Secondary text */
+    
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(26, 35, 126, 0.9) 0%, rgba(33, 150, 243, 0.8) 100%);
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fw-black {
+    font-weight: 900 !important;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-outline-primary:hover {
+    color: #FFFFFF;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+
+/* Logo Section */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img.animated-logo {
+    height: 60px;
+    width: auto;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+/** Nav - Start**/
+/* Solar Navbar with Glassmorphism */
+.navbar {
+    font-family:"Montserrat";
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    border-radius: 20px;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Solar Glow Effect */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(50, 205, 50, 0.1),
+        rgba(255, 215, 0, 0.1)
+    );
+    z-index: -1;
+    animation: solarGlow 5s infinite;
+}
+
+@keyframes solarGlow {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Logo Styles */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.animated-logo {
+    height: 45px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(50, 205, 50, 0.3));
+}
+
+.logo-wrapper span {
+    color: #32CD32;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.logo-wrapper span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #32CD32, transparent);
+}
+
+/* Navigation Links */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 8px 15px !important;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #32CD32, #FFD700);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #32CD32;
+}
+
+/* Solar Estimate Button */
+.estimate-btn {
+    font-family:"Montserrat";
+    background: var(--gradient-primary);
+    color: var(--dark);
+    color: #333;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+
+/* Dropdown Menu */
+.dropdown-menu {
+    font-family:"Montserrat";
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    animation: dropdownFade 0.3s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(135deg, #32CD32, #28a745);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Mobile Menu */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: 0;
+    }
+
+    .toggler-icon {
+        width: 25px;
+        height: 2px;
+        background: #32CD32;
+        margin: 5px 0;
+        transition: 0.3s;
+        display: block;
+    }
+
+    .navbar-toggler.active .toggler-icon:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar-toggler.active .toggler-icon:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggler.active .toggler-icon:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .estimate-btn {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Scroll Effect */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+/** Nav - END**/
+
+/*** Header ***/
+/* Video Background Section */
+.hero-video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the section */
+    z-index: -1; /* Places the video behind content */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    z-index: 1; /* Places content above the video */
+}
+
+.hero-overlay h1 {
+    font-family:Montserrat;
+    text-transform:uppercase;
+    padding-left: 850px;
+    line-height: 6rem;
+    text-align: left;
+    color: white;
+    font-size:9rem;
+    margin-bottom: 20px;
+}
+.sub{
+    font-family:Montserrat;
+    text-transform:uppercase;
+    color: white;
+    padding-left: 850px;
+    text-align: left;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-overlay p {
+    font-family: Montserrat,serif;
+    font-style: italic;
+    padding-left: 850px;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+.cta-button {
+    background: linear-gradient(45deg, #558b2f, #558b2f);
+    color: white;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-overlay .cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced About Section Animations */
+.about-card {
+    font-family:"Montserrat";   
+    background: rgba(255, 255, 255, 0.9);
+    border-left: 4px solid var(--primary);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+}
+.about-card .icon-box {
+    color: var(--primary);
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* PM Section Styles */
+.pm-section {
+    margin-bottom: 2rem;
+}
+
+.pm-announcement-card {
+    background: #041E42; /* Deep navy blue background */
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 400px;
+}
+
+.pm-image-side {
+    flex: 0 0 40%;
+    padding: 0;
+    position: relative;
+}
+
+.pm-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.pm-content-side {
+    flex: 0 0 60%;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.pm-content-side h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+    border-bottom: 2px solid #00FF9D;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.pm-content-side h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.highlight-text {
+    font-size: 2rem;
+    color: #00FF9D; /* Bright green */
+    margin: 20px 0;
+    font-weight: 500;
+}
+
+.hashtag {
+    color: #87CEEB;
+    font-size: 1.4rem;
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.cta-text {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Scheme Cards Adjustment */
+.scheme-card {
+    height: 100%;
+    min-height: 300px;
+}
+/* Vision Text Box - Keeping Original Style */
+.vision-text {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+.vision-text h5 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.vision-text p {
+    color: var(--light);
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .pm-announcement-card {
+        max-width: 100%;
+    }
+    
+    .pm-content-side h2 {
+        font-size: 2rem;
+    }
+    
+    .highlight-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .pm-announcement-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .pm-image-side {
+        flex: 0 0 auto;
+        height: 400px;
+    }
+    
+    .pm-content-side {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pm-image-side {
+        height: 300px;
+    }
+    
+    .pm-content-side h3 {
+        font-size: 1.5rem;
+    }
+    
+    .pm-content-side h2 {
+        font-size: 1.8rem;
+    }
+    
+    .highlight-text {
+        font-size: 1.5rem;
+    }
+    
+    .cta-text {
+        font-size: 1.6rem;
+    }
+}
+/* Solar Schemes Section Styles */
+.solar-schemes {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 80px 0;
+    overflow: hidden;
+}
+.solar-schemes .container-fluid {
+    width: 100%;
+    max-width: none;
+    padding: 0 40px;
+}
+
+.solar-schemes .row {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+/* Video Background Styling */
+.schemes-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Overlay to make content readable */
+.schemes-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.95), rgba(13, 71, 161, 0.85));
+    z-index: 1;
+}
+
+/* Make content appear above video */
+.solar-schemes .container-fluid {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Title Section */
+.solar-schemes .section-title {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+/* Solar Grid Pattern Background */
+.solar-schemes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, 
+            rgba(255,255,255,.07) 1px, 
+            transparent 1px
+        ),
+        linear-gradient(0deg, 
+            rgba(255,255,255,.07) 1px, 
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(255, 255, 255, 0.1) 2px, 
+            transparent 2px
+        ),
+        linear-gradient(90deg, 
+            rgba(255, 255, 255, 0.1) 2px, 
+            transparent 2px
+        );
+    background-size: 
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px;
+    transform: perspective(100px) rotateX(30deg);
+    animation: gridMove 20s linear infinite;
+    opacity: 0.3;
+}
+
+/* Title Section Enhancement */
+.solar-schemes .text-center {
+    position: relative;
+    z-index: 2;
+}
+
+.solar-schemes h6.text-primary {
+    color: var(--primary) !important;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.solar-schemes h2 {
+    color: #ffffff;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.solar-schemes p.text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* PM Announcement Card Enhancement */
+.pm-announcement-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+    margin: 0 40px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pm-content-side {
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.9), rgba(13, 71, 161, 0.9));
+    padding: 50px;
+}
+
+/* Grid Layout for Scheme Cards */
+.schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 0 40px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.scheme-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2.5rem;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.scheme-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 255, 157, 0.05),
+        rgba(255, 255, 255, 0.05)
+    );
+    z-index: -1;
+}
+.scheme-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.scheme-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
+
+.scheme-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--gradient-primary);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+.scheme-icon i {
+    font-size: 28px;
+    color: var(--dark);
+    transition: all 0.4s ease;
+}
+.scheme-card:hover .scheme-icon {
+    background: var(--dark);
+    transform: rotate(10deg);
+}
+
+.scheme-card:hover .scheme-icon i {
+    color: var(--primary);
+    transform: rotate(-10deg);
+}
+.scheme-card h4 {
+    color: var(--dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.scheme-details {
+    color: var(--light);
+    margin-bottom: 1.5rem;
+}
+
+.scheme-details p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+}
+
+.scheme-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.scheme-details ul li {
+    color: var(--dark);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.scheme-details ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+.read-more:hover {
+    color: var(--dark);
+    transform: translateX(10px);
+}
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .schemes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .solar-schemes .container-fluid {
+        padding: 0 30px;
+    }
+
+    .pm-announcement-card {
+        margin: 0 30px 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pm-announcement-card {
+        grid-template-columns: 1fr;
+    }
+
+    .schemes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .solar-schemes {
+        padding: 60px 0;
+    }
+
+    .solar-schemes .container-fluid {
+        padding: 0 20px;
+    }
+
+    .pm-announcement-card {
+        margin: 0 20px 30px;
+    }
+
+    .scheme-card {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .schemes-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .solar-schemes .container-fluid {
+        padding: 0 15px;
+    }
+
+    .pm-announcement-card {
+        margin: 0 15px 20px;
+    }
+}
+
+/*** Service ***/
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+}
+
+.service-icon {
+    position: relative;
+    margin: -50px 0 25px 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    background: var(--gradient-primary);
+    border-radius: 100px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+
+.service-item:hover .service-icon {
+    color: #FFFFFF;
+    background: var(--primary);
+}
+/* Savings Calculator Section */
+/* Savings Calculator Section */
+.savings-calculator {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--accent-dark) 100%);
+    color: white;
+    padding: 80px 0;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.savings-calculator h2 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.savings-calculator p {
+    color: var(--light);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+.savings-calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, rgba(253, 184, 19, 0.05) 25%, transparent 25%),
+                      linear-gradient(-45deg, rgba(253, 184, 19, 0.05) 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, rgba(253, 184, 19, 0.05) 75%),
+                      linear-gradient(-45deg, transparent 75%, rgba(253, 184, 19, 0.05) 75%);
+    background-size: 20px 20px;
+    opacity: 0.1;
+}
+
+.calculator {
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.calculator .inputs {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results {
+    flex: 1;
+    max-width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.input-group:hover {
+    transform: translateY(-3px);
+}
+
+.input-group label {
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}   
+
+.input-group select:focus,
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(253, 184, 19, 0.1);
+    outline: none;
+}
+
+/* Animation for Results */
+@keyframes resultUpdate {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.result-card p {
+    animation: resultUpdate 0.3s ease-out;
+}
+
+#calculation-toggle {
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+/* Improved aesthetics for number inputs */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-group {
+        padding: 15px;
+    }
+    
+    .input-group select,
+    .input-group input {
+        padding: 8px 12px;
+    }
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(253, 184, 19, 0.2);
+}
+
+.result-card h4 {
+    color: var(--dark);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.result-card p {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.actions .btn {
+    background: var(--gradient-primary);
+    color: var(--dark);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.actions .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(253, 184, 19, 0.3);
+}
+
+.actions .btn.secondary {
+    background: var(--gradient-secondary);
+    color: var(--light);
+}
+
+
+/* Large Devices (less than 1200px) */
+@media (max-width: 1200px) {
+    .hero-overlay h1 {
+        font-size: 7rem;
+        padding-left: 450px;
+        line-height: 5rem;
+    }
+
+    .hero-overlay .sub {
+        font-size: 3rem;
+        padding-left: 450px;
+    }
+
+    .hero-overlay p {
+        font-size: 1.3rem;
+        padding-left: 450px;
+    }
+
+    .calculator {
+        padding: 20px;
+    }
+}
+
+/* Medium Devices (less than 992px) */
+@media (max-width: 991px) {
+    .hero-overlay h1 {
+        font-size: 5rem;
+        padding-left: 250px;
+        line-height: 4rem;
+    }
+
+    .hero-overlay .sub {
+        font-size: 2.5rem;
+        padding-left: 250px;
+    }
+
+    .hero-overlay p {
+        font-size: 1.2rem;
+        padding-left: 250px;
+    }
+
+    /* Calculator Adjustments */
+    .calculator .inputs,
+    .calculator .results {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .results {
+        margin-top: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-card {
+        padding: 15px;
+    }
+
+    /* Navigation Improvements */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .navbar-nav {
+        gap: 10px;
+        padding: 20px 0;
+    }
+
+    .nav-link {
+        padding: 10px 20px !important;
+    }
+}
+
+/* Small Devices (less than 768px) */
+@media (max-width: 767px) {
+    .hero-overlay {
+        width: 100%;
+        padding: 0 20px;
+        left: 0;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .hero-overlay h1 {
+        font-size: 3.5rem;
+        padding-left: 0;
+        line-height: 3.5rem;
+        text-align: center;
+    }
+
+    .hero-overlay .sub {
+        font-size: 2rem;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .hero-overlay p {
+        font-size: 1.1rem;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .hero-video-section {
+        height: 90vh;
+    }
+
+    /* Calculator Enhancements */
+    .savings-calculator {
+        padding: 30px 15px;
+    }
+
+    .calculator {
+        padding: 15px;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .result-card {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .actions .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    /* About Section */
+    .about-card {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Schemes Section */
+    .scheme-card {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .pm-announcement-card {
+        flex-direction: column;
+    }
+
+    .pm-content-side {
+        padding: 20px;
+    }
+}
+
+/* Extra Small Devices (less than 576px) */
+@media (max-width: 575px) {
+    .hero-overlay h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .hero-overlay .sub {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Enhanced Calculator for Very Small Screens */
+    .input-group label {
+        font-size: 0.9rem;
+    }
+
+    .input-group select,
+    .input-group input {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .result-card {
+        padding: 10px;
+    }
+
+    .result-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .result-card p {
+        font-size: 1.2rem;
+    }
+
+    /* Navigation Refinements */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .animated-logo {
+        height: 35px;
+    }
+
+    /* Footer Adjustments */
+    .footer {
+        text-align: center;
+    }
+
+    .footer .btn.btn-social {
+        margin: 5px;
+    }
+}
+
+/* Portrait Orientation Specific */
+@media (max-width: 767px) and (orientation: portrait) {
+    .hero-video-section {
+        height: 100vh;
+    }
+
+    .hero-overlay {
+        top: 45%;
+    }
+}
+
+/* Landscape Orientation Specific */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero-video-section {
+        height: 120vh;
+    }
+
+    .hero-overlay {
+        top: 55%;
+    }
+}
+/*** Team ***/
+.team-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+}
+
+.team-item img {
+    border-radius: 8px 60px 0 0;
+}
+
+.team-item .team-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background: #FFFFFF;
+    transition: .5s;
+}
+
+
+/*** Testimonial ***/
+.testimonial-carousel::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.testimonial-carousel::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .testimonial-carousel::before,
+    .testimonial-carousel::after {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .testimonial-carousel::before,
+    .testimonial-carousel::after {
+        width: 300px;
+    }
+}
+
+.testimonial-carousel .owl-nav {
+    position: absolute;
+    width: 350px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transition: .5s;
+    z-index: 1;
+}
+
+.testimonial-carousel:hover .owl-nav {
+    width: 300px;
+    opacity: 1;
+}
+
+.testimonial-carousel .owl-nav .owl-prev,
+.testimonial-carousel .owl-nav .owl-next {
+    position: relative;
+    color: var(--primary);
+    font-size: 45px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-nav .owl-prev:hover,
+.testimonial-carousel .owl-nav .owl-next:hover {
+    color: var(--dark);
+}
+
+.testimonial-carousel .testimonial-img img {
+    width: 100px;
+    height: 100px;
+}
+
+.testimonial-carousel .testimonial-img .btn-square {
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.testimonial-carousel .owl-item .testimonial-text {
+    margin-bottom: 30px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transform: scale(.8);
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text {
+    transform: scale(1);
+}
+
+
+/*** Contact ***/
+@media (min-width: 992px) {
+    .container.contact {
+        max-width: 100% !important;
+    }
+
+    .contact-text  {
+        padding-left: calc(((100% - 960px) / 2) + .75rem);
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-text  {
+        padding-left: calc(((100% - 1140px) / 2) + .75rem);
+    }
+}
+
+@media (min-width: 1400px) {
+    .contact-text  {
+        padding-left: calc(((100% - 1320px) / 2) + .75rem);
+    }
+}
+
+
+/*** Footer ***/
+.footer .btn.btn-social {
+    margin-right: 5px;
+    color: #9B9B9B;
+    border: 1px solid #9B9B9B;
+    border-radius: 38px;
+    transition: .3s;
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);
+    border-color: var(--light);
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #9B9B9B;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: var(--light);
+}
+
+.footer .copyright a:hover {
+    color: var(--primary);
+}
