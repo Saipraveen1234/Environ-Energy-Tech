@@ -1,8 +1,7 @@
 /* Add custom font */
 @font-face {
     font-family: 'Montserrat';
-    src: url('fonts/Montserrat') format('truetype'),
-         url('fonts/CustomFont-Regular.ttf') format('truetype');
+    src: url('fonts/Montserrat') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
